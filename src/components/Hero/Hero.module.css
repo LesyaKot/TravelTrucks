@@ -1,0 +1,25 @@
+.background {
+  background-image: url("/wallpaper.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  color: var(--Inputs, #f7f7f7);
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.text {
+  color: var(--Inputs, #f7f7f7);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
