@@ -1,14 +1,33 @@
 // import { useState } from 'react'
-import Home from './pages/Home'
+import { Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import Catalog from './pages/Catalog';
+import './App.css';
+import CamperItem from "./components/CamperItem/CamperItem";
+import { Layout } from "./Layout";
 
-import './App.css'
 
 function App() {
  
 
   return (
     <>
-     <Home/>
+    {/* <Routes>
+    <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/catalog/:id" element={<CamperItem />} />
+        <Route path="*" element={<Home />} />
+        </Route>
+      </Routes>      */}
+       <Routes>
+    
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/catalog/:id" element={<CamperItem />} />
+        <Route path="*" element={<Home />} />
+       
+      </Routes>     
     </>
   )
 }
