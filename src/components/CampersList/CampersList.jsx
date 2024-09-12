@@ -1,37 +1,40 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+// import { selectCampers, selectError } from "../../redux/campers/selectors.js";
+// import { fetchCampers } from "../../redux/campers/operations.js";
+// import { incrementPage } from "../../redux/campers/slice.js";
+// import LoadMoreButton from "../LoadMoreButton/LoadMoreButton.jsx";
+import CamperCard from "../CamperCard/CamperCard.jsx";
+import css from './CampersList.module.css';
 
-const CamperList = () => {
-  const [campers, setCampers] = useState([]);
+export default function CamperList() {
+  const dispatch = useDispatch();
+  const campers = useSelector(selectCampers);
+  const error = useSelector(selectError);
+  const { morePages } = useSelector(selectCampers);
+  const { items = [] } = campers;
 
-  useEffect(() => {
-    axios
-      .get('https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers')
-      .then(response => {
-        
-        if (response.data && Array.isArray(response.data.items)) {
-          setCampers(response.data.items); 
-        } else {
-          console.error('Unexpected data format:', response.data);
-          setCampers([]); 
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching campers:', error);
-      });
-  }, []);
+  const handleLoadMore = () => {
+    if (morePages) {
+      dispatch(incrementPage());
+      dispatch(fetchCampers());
+    }
+  };
 
   return (
-    <div>
-      <ul>
-        {campers.length > 0 ? (
-          campers.map((camper) => <li key={camper.id}>{camper.name}</li>)
-        ) : (
-          <li>No campers available</li>
-        )}
+    <div className={css.wrapper}>
+      <ul className={css.list}>
+        {items.map((camper) => (
+          <li key={camper.id}>
+            <CamperCard camper={camper} />
+          </li>
+        ))}
       </ul>
+      {/*  */}
+      {!error && morePages && <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>}
     </div>
   );
 }
+// ЗРОБИТИ КОМПОНЕНТ ЛОАД МОР!!!!!!!!!!!!
 
-export default CamperList;
+
+
