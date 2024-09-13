@@ -1,9 +1,8 @@
 import { SuitHeart, StarFill, Map } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-
-// import { toggleFavorite } from "../../redux/campers/slice.js";
-// import { selectCampers } from "../../redux/campers/selectors.js";
-// import LinkButton from "../LinkButton/LinkButton.jsx";
+import { chooseFavorite } from "../../redux/campers/slice.js";
+import { selectCampers } from "../../redux/campers/selectors.js";
+import ShowMoreBtn from '../ShowMoreBtn/ShowMoreBtn';
 import CamperCategories from '../CamperCategories/CamperCategories';
 import css from "./CamperCard.module.css";
 
@@ -18,9 +17,7 @@ export default function CamperCard({ camper }) {
   const myLocation = `${city}, ${country}`;
 
   const handleClick = () => {
-    // ЗРОБИТИ ГЕТФЕЙВОРІТ КОМПОНЕНТ!!!!!!
-    
-    dispatch(getFavorite(camper.id));
+    dispatch(chooseFavorite(camper.id));
   };
 
   return (
@@ -50,11 +47,6 @@ export default function CamperCard({ camper }) {
         </div>
         <p className={css.description}>{description}</p>
         <CamperCategories camper={camper} />
-
-
-        //  ЗРОБИТИ КОМПОНЕНТ ШОУ МОР БТН !!!!!!!!!!
-        
-
         <ShowMoreBtn variant="small" to={`/catalog/${id}`}>
           Show more
         </ShowMoreBtn>

@@ -36,7 +36,7 @@ export default function CamperItem({ camper, onClick }) {
           ))}
       </div>
 
-      {/* <p className={css.priceValue}>&#8364;{price.toFixed(2)}</p> */}
+      <p className={css.priceValue}>&#8364;{price.toFixed(2)}</p>
       <ImageGallery gallery={gallery} onClick={onClick} />
 
       <p>{description}</p>

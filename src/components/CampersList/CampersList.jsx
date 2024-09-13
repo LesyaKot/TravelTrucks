@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { selectCampers, selectError } from "../../redux/campers/selectors.js";
-// import { fetchCampers } from "../../redux/campers/operations.js";
-// import { incrementPage } from "../../redux/campers/slice.js";
-// import LoadMoreButton from "../LoadMoreButton/LoadMoreButton.jsx";
+import { selectCampers, selectError } from "../../redux/campers/selectors.js";
+import { fetchCampers } from "../../redux/campers/operations.js";
+import { incrementPage } from "../../redux/campers/slice.js";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
 import CamperCard from "../CamperCard/CamperCard.jsx";
 import css from './CampersList.module.css';
 
@@ -29,12 +29,10 @@ export default function CamperList() {
           </li>
         ))}
       </ul>
-      {/*  */}
-      {!error && morePages && <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>}
+      {!error && morePages && <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>}
     </div>
   );
 }
-// ЗРОБИТИ КОМПОНЕНТ ЛОАД МОР!!!!!!!!!!!!
 
 
 

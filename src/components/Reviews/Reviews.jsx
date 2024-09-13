@@ -1,16 +1,18 @@
+import { nanoid } from "nanoid";
+import { useSelector } from "react-redux";
+import { selectCampers } from "../../redux/campers/selectors.js";
+import css from "./Reviews.module.css";
 
-      
-    //   <h3>Reviews</h3>
-    //   {camper.reviews && camper.reviews.length > 0 ? (
-    //     <div className="reviews">
-    //       {camper.reviews.map((review, index) => (
-    //         <div key={index}>
-    //           <h4>{review.reviewer_name}</h4>
-    //           <p>Rating: {review.reviewer_rating}</p>
-    //           <p>{review.comment}</p>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   ) : (
-    //     <p>No reviews available.</p>
-    //   )}
+export default function Reviews() {
+  const { currentItem } = useSelector(selectCampers);
+  const { reviews } = currentItem;
+  return (
+    <ul className={css.reviewList}>
+      {reviews.map((item) => (
+        <li key={nanoid()}>
+          <ReviewItem review={item} />
+        </li>
+      ))}
+    </ul>
+  );
+}
