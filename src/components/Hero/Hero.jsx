@@ -1,3 +1,4 @@
+import Button from '../Button/Button.jsx';
 import css from "./Hero.module.css";
 export default function Hero() {
   return (
@@ -7,7 +8,7 @@ export default function Hero() {
         <h2 className={css.text}>
           You can find everything you want in our catalog
         </h2>
-        <button>View Now</button>
+        <Button to={"/catalog"}>View Now</Button>
       </div>
     </>
   );

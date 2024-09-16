@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectCampers, selectError } from "../../redux/campers/selectors.js";
 import { fetchCampers } from "../../redux/campers/operations.js";
-import { incrementPage } from "../../redux/campers/slice.js";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
+import { useEffect } from "react";
 import CamperCard from "../CamperCard/CamperCard.jsx";
 import css from './CampersList.module.css';
 
@@ -10,15 +9,13 @@ export default function CamperList() {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
   const error = useSelector(selectError);
-  const { morePages } = useSelector(selectCampers);
+
+  
   const { items = [] } = campers;
 
-  const handleLoadMore = () => {
-    if (morePages) {
-      dispatch(incrementPage());
-      dispatch(fetchCampers());
-    }
-  };
+  useEffect(() => {
+    dispatch(fetchCampers()); 
+  }, [dispatch]);
 
   return (
     <div className={css.wrapper}>
@@ -29,10 +26,7 @@ export default function CamperList() {
           </li>
         ))}
       </ul>
-      {!error && morePages && <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>}
+      {error && <p>Error loading campers: {error}</p>}
     </div>
   );
 }
-
-
-

@@ -1,8 +1,43 @@
-# React + Vite
+Travel Trucks App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це додаток на react для бронювання кемперів.
 
-Currently, two official plugins are available:
+Умови
+на ваш пк встановлені програми:
+- Node.js (версія 14.x або вище)
+- npm (версія 6.x або вище) або yarn (версія 1.x або вище)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Встановлення
+Клонуйте репозиторій на свій пк:
+
+git clone https://github.com/ваш-репозиторій.git
+Перейдіть у папку з проектом:
+
+cd ваш-репозиторій
+Встановіть залежності:
+
+npm install
+або якщо використовуєте yarn:
+
+yarn install
+Запуск проєкту
+Для локального запуску проєкту використовуйте команду:
+
+npm run dev
+або для yarn:
+
+yarn dev
+Відкрийте в браузері:
+
+http://localhost:5173
+Збірка проєкту
+Для збірки проєкту використовуйте команду:
+
+npm run build
+або для yarn:
+
+yarn build
+Зібраний проєкт буде знаходитися в папці build.
+
+Розгортання
+Для розгортання на платформі, такій як Vercel, слідуйте документації вашої платформи.

@@ -3,6 +3,9 @@ import ImageGallery from "../ImageGallery/ImageGallery";
 import css from "./CamperItem.module.css";
 
 export default function CamperItem({ camper, onClick }) {
+  if (!camper) {
+    return <div>Loading...</div>; 
+  }
   const { name, price, rating, reviews, location, gallery, description } =
     camper;
   const [country, city] = location.split(", ");
@@ -12,6 +15,7 @@ export default function CamperItem({ camper, onClick }) {
     <div>
       <h2>{name}</h2>
       <p>€{price}</p>
+      <p>€{price.toFixed(2)}</p>
 
       <div>
         <StarFill size={16} />
@@ -22,7 +26,7 @@ export default function CamperItem({ camper, onClick }) {
 
       <div>
         <Map size={16} />
-        <p>{swappedLocation}</p>
+        <p>{myLocation}</p>
       </div>
 
       <div>
@@ -36,7 +40,7 @@ export default function CamperItem({ camper, onClick }) {
           ))}
       </div>
 
-      <p className={css.priceValue}>&#8364;{price.toFixed(2)}</p>
+     
       <ImageGallery gallery={gallery} onClick={onClick} />
 
       <p>{description}</p>

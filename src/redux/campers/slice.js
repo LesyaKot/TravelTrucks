@@ -44,35 +44,32 @@ const campersSlise = createSlice({
     },
   },
 
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchCampers.pending, handlePending)
-      .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items = [
-          ...state.items,
-          ...action.payload.items.filter(
-            (newItem) =>
-              !state.items.some(
-                (existingItem) => existingItem.id === newItem.id
-              )
-          ),
-        ];
+extraReducers: (builder) => {
+  builder
+    .addCase(fetchCampers.pending, handlePending)
+    .addCase(fetchCampers.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null;
+      
+      state.items = [
+        ...state.items,
+        ...action.payload.items.filter(
+          (newItem) => !state.items.some((existingItem) => existingItem.id === newItem.id)
+        ),
+      ];
 
-        state.totalItems = action.payload.total;
-        state.morePages = state.items.length < state.totalItems;
-      })
-      .addCase(fetchCampers.rejected, handleRejected)
-      .addCase(fetchCamperById.pending, handlePending)
-      .addCase(fetchCamperById.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.currentItem = action.payload;
-      })
-      .addCase(fetchCamperById.rejected, handleRejected);
-  },
+      state.totalItems = action.payload.total;
+      state.morePages = state.items.length < state.totalItems;
+    })
+    .addCase(fetchCampers.rejected, handleRejected)
+    .addCase(fetchCamperById.pending, handlePending)
+    .addCase(fetchCamperById.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null;
+      state.currentItem = action.payload;
+    })
+    .addCase(fetchCamperById.rejected, handleRejected);
+},
 });
-
 export const campersReducer = campersSlise.reducer;
 export const { incrementPage, resetPage, chooseFavorite } = campersSlise.actions;
