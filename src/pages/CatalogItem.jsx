@@ -57,7 +57,7 @@ export default function CamperDetailsPage() {
           <CamperItem camper={currentItem} onClick={handleOpenModal} />
           <CatalogItemNav />
           <div>
-            <Suspense fallback={<div>!!!!!!!!!!!!!Loading...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
             </Suspense>
              

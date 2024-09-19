@@ -1,12 +1,10 @@
-import CatalogItemNav from "./components/CatalogItemNav/CatalogItemNav";
-
 import { Suspense } from "react";
-
+import Navigation from "./components/Navigation/Navigation";
 
 export default function Layout({ children }) {
   return (
     <div >
-      <CatalogItemNav />
+      <Navigation />
       <main>
         <Suspense fallback={<div></div>}>{children}</Suspense>
       </main>
