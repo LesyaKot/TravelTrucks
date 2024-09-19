@@ -19,6 +19,7 @@ export default function CamperCard({ camper }) {
   const handleClick = () => {
     dispatch(chooseFavorite(camper.id));
   };
+  console.log('Camper:', camper); 
 
   return (
     <div className={css.wrapper}>
@@ -48,6 +49,7 @@ export default function CamperCard({ camper }) {
         <p className={css.description}>{description}</p>
         <CamperCategories camper={camper} />
         <Button variant="small" to={`/catalog/${id}`}>
+        
           Show more
         </Button>
       </div>

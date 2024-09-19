@@ -48,8 +48,10 @@ extraReducers: (builder) => {
   builder
     .addCase(fetchCampers.pending, handlePending)
     .addCase(fetchCampers.fulfilled, (state, action) => {
-      state.loading = false;
+      state.isLoading = false;
       state.error = null;
+      
+      console.log("Campers fetched:", action.payload);
       
       state.items = [
         ...state.items,
@@ -64,7 +66,7 @@ extraReducers: (builder) => {
     .addCase(fetchCampers.rejected, handleRejected)
     .addCase(fetchCamperById.pending, handlePending)
     .addCase(fetchCamperById.fulfilled, (state, action) => {
-      state.loading = false;
+      state.isLoading = false;
       state.error = null;
       state.currentItem = action.payload;
     })

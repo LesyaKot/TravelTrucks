@@ -5,14 +5,15 @@ import {
   selectCampers,
   selectError,
   selectIsLoading,
-} from "../../redux/campers/selectors.js";
-import { fetchCamperById } from "../../redux/campers/operations.js";
-import { closeModal, openModal } from "../../redux/modal/slice.js";
-import { selectModal } from "../../redux/modal/selectors.js";
+} from "../redux/campers/selectors.js";
+import { fetchCamperById } from "../redux/campers/operations.js";
+import { closeModal, openModal } from "../redux/modal/slice.js";
+import { selectModal } from "../redux/modal/selectors.js";
 import { Toaster } from "react-hot-toast";
 import CamperItem from "../components/CamperItem/CamperItem.jsx";
 import BookForm from "../components/BookForm/BookForm.jsx";
 import CatalogItemNav from "../components/CatalogItemNav/CatalogItemNav.jsx";
+import ImageModal from "../components/ImageModal/ImageModal.jsx";
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -26,24 +27,28 @@ export default function CamperDetailsPage() {
   const [currentImageUrl, setCurrentImageUrl] = useState("");
 
   useEffect(() => {
+   
     dispatch(fetchCamperById(id));
+    console.log('Fetching camper details for ID:', id);
   }, [dispatch, id]);
 
   const handleOpenModal = (imageUrl) => {
+    console.log('Opening modal for image:', imageUrl); 
     setCurrentImageUrl(imageUrl);
     dispatch(openModal());
   };
 
   const handleCloseModal = () => {
+    console.log('Closing modal');
     dispatch(closeModal());
   };
 
   return (
-    <section className={css.camper}>
+    <section>
       {isLoading && `Please wait a second`}
       {error && `Something is wrong`}
       {currentItem && (
-        <div className={css.container}>
+        <div>
           <ImageModal
             isOpen={isOpen}
             onClose={handleCloseModal}
@@ -51,10 +56,11 @@ export default function CamperDetailsPage() {
           />
           <CamperItem camper={currentItem} onClick={handleOpenModal} />
           <CatalogItemNav />
-          <div className={css.secondContainer}>
-            <Suspense fallback={<div>Loading...</div>}>
+          <div>
+            <Suspense fallback={<div>!!!!!!!!!!!!!Loading...</div>}>
               <Outlet />
             </Suspense>
+             
             <BookForm />
           </div>
         </div>

@@ -13,14 +13,18 @@ export default function Catalog(){
 
     useEffect(() => {
         dispatch(fetchCampers());
+        console.log('Fetching campers...'); 
     }, [dispatch]);
+
+    console.log('Campers:', campers);
 
     return(
         <section>
               <div>{isLoading && "Request in progress..."}</div>
        <div>
        <FilterForm />
-        <CamperList campers={campers.items}/>
+        <CamperList campers={campers.items}       
+        />
        </div>
        <Toaster position="top-left" containerStyle={{ zIndex: 9999 }} />
         </section>

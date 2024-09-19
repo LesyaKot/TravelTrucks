@@ -1,4 +1,15 @@
+import CatalogItemNav from "./components/CatalogItemNav/CatalogItemNav";
 
-export const Layout = ({ children }) => {
-    return <main>{children}</main>;
-  };
+import { Suspense } from "react";
+
+
+export default function Layout({ children }) {
+  return (
+    <div >
+      <CatalogItemNav />
+      <main>
+        <Suspense fallback={<div></div>}>{children}</Suspense>
+      </main>
+    </div>
+  );
+}

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import selectCampers from "../../redux/campers/selectors.js";
+import {selectCampers} from "../../redux/campers/selectors.js";
 import CampersCategories from "../CamperCategories/CamperCategories.jsx";
 import css from "./Features.module.css";
 
 export default function Features() {
   const { currentItem } = useSelector(selectCampers);
-  const { form, length, height, tank, consumption } = currentItem;
+  const { form, length, width, height, tank, consumption } = currentItem;
   const formatted = `${form.charAt(0).toUpperCase()}${form.slice(1)}`;
 
   function modifiedString(string) {
