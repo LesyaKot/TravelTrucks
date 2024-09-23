@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  gap: 48px;
+  justify-content: start;
+  margin-bottom: 28px;
+}
+
+.item {
+  transition: transform 300ms ease-in-out;
+}
+
+.item:hover {
+  transform: scale(1.04);
+  transition: transform 300ms ease-in-out;
+}

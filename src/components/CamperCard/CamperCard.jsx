@@ -22,7 +22,7 @@ export default function CamperCard({ camper }) {
   console.log('Camper:', camper); 
 
   return (
-    <div className={css.wrapper}>
+    <div className={css.wrap}>
       <img className={css.image} src={gallery[0].original} alt={name} width="292px" height="320px" />
       <div>
         <div className={css.title}>
@@ -47,9 +47,22 @@ export default function CamperCard({ camper }) {
           </div>
         </div>
         <p className={css.description}>{description}</p>
-        <CamperCategories camper={camper} />
-        <Button variant="small" to={`/catalog/${id}`}>
-        
+
+        <CamperCategories 
+  transmission={camper.transmission} 
+  engine={camper.engine} 
+  AC={camper.AC} 
+  bathroom={camper.bathroom} 
+  kitchen={camper.kitchen} 
+  TV={camper.TV} 
+  radio={camper.radio} 
+  refrigerator={camper.refrigerator} 
+  microwave={camper.microwave} 
+  gas={camper.gas} 
+  water={camper.water} 
+/>
+
+        <Button variant="small" to={`/catalog/${id}`}>        
           Show more
         </Button>
       </div>

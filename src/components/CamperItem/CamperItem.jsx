@@ -4,7 +4,7 @@ import css from "./CamperItem.module.css";
 
 export default function CamperItem({ camper, onClick }) {
   if (!camper) {
-    return <div>Loading...</div>; 
+    return <div></div>; 
   }
   const { name, price, rating, reviews, location, gallery, description } =
     camper;
@@ -28,22 +28,11 @@ export default function CamperItem({ camper, onClick }) {
         <Map size={16} />
         <p>{myLocation}</p>
       </div>
-
-      <div>
-        {camper.gallery &&
-          camper.gallery.map((image, index) => (
-            <img
-              key={index}
-              src={image.thumb}
-              alt={`Camper image ${index + 1}`}
-            />
-          ))}
-      </div>
-
-     
+    
       <ImageGallery gallery={gallery} onClick={onClick} />
 
       <p>{description}</p>
+     
     </div>
   );
 }

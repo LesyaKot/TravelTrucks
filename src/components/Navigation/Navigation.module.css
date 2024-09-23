@@ -1,0 +1,29 @@
+.wrap{
+    max-width: 1440px;
+    padding: 24px 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    gap: 450px;    
+    align-items: center;
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+}
+
+.link{
+    color: #101828;
+    font-weight: 500;
+    text-decoration: none;
+}
+.active {
+    color: var(--main-button-hover-color);
+    position: relative;
+  }

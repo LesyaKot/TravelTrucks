@@ -6,9 +6,9 @@ export default function ImageGallery({gallery, onClick}){
 
     return(
         <div>
-            <ul>
+            <ul className={css.list}>
                 {gallery.map((item) => (
-                    <li key={nanoid()}>
+                    <li className={css.item} key={nanoid()}>
                         <ImageItem image={item} onClick={onClick}/>
                     </li>
                     

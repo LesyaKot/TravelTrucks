@@ -54,7 +54,7 @@ export default function FilterForm() {
           </label>
           <Field className={css.locationInput} type="text" name="location" id={cityFieldId} placeholder="City" />
           <Map className={css.mapIcon} size={20} />
-          <p className={css.filtersTitlle}>Filters</p>
+          <p className={css.title}>Filters</p>
           <h3 className={css.searchParamsTitle}>Vehicle equipment</h3>
           <ul className={css.equipmentList}>
             <li>

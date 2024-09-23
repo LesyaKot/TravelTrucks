@@ -10,19 +10,19 @@ const getNavLinkClass = ({ isActive }) => {
 export default function Navigation() {
 
   return (
-    <div>
+    <div className={css.wrap}>
       <nav className={css.nav}>
         <Link to="/">
           <Logo />
         </Link>
-        <ul>
-          <li>
-            <NavLink className={css.link} to="/">
+        <ul className={css.list}>
+          <li className={css.link}>
+            <NavLink className={getNavLinkClass} to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={css.link} to="/catalog">
+            <NavLink className={getNavLinkClass} to="/catalog">
               Catalog
             </NavLink>
           </li>

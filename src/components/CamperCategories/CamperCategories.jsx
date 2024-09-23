@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap-icons";
 import CamperCategoriesItem from "../CamperCategoriesItem/CamperCategoriesItem";
 import css from "./CamperCategories.module.css";
-import CamperItem from "../CamperItem/CamperItem";
+
 
 
 export default function CamperCategories({
@@ -58,7 +58,7 @@ export default function CamperCategories({
 
   const data = Object.entries(categories).filter(([key, value]) => value);
   return (
-    <ul>
+    <ul className={css.list}>
       {data.map(([key, value]) => {
         const CategoryIcon = icons[key];
         const title = key === "transmission" || key === "engine" ? value : key;
@@ -66,7 +66,7 @@ export default function CamperCategories({
         return (
           CategoryIcon && (
             <li key={key}>
-              <CamperItem icon={CategoryIcon} title={title} />
+             <CamperCategoriesItem icon={CategoryIcon} title={title} />
             </li>
           )
         );

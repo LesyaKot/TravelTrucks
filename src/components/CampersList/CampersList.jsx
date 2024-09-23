@@ -18,7 +18,7 @@ export default function CamperList() {
   }, [dispatch]);
 
   return (
-    <div className={css.wrapper}>
+    <div className={css.wrap}>
       <ul className={css.list}>
         {items.map((camper) => (
           <li key={camper.id}>
