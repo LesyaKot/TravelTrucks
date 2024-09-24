@@ -9,5 +9,5 @@ export default function RatingStars({ count }) {
     <StarFill className={index < count ? css.starIcon : css.starIconGrey} key={nanoid()} size={16} />
   ));
 
-  return <div className={css.starsContainer}>{iconsList}</div>;
+  return <div className={css.starsWrap}>{iconsList}</div>;
 };

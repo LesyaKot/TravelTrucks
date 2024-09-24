@@ -72,8 +72,7 @@
   
   .description {
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 524px;
+    text-overflow: ellipsis;    
     margin-bottom: 24px;
+    text-align: start;
   }

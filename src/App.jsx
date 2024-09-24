@@ -3,9 +3,9 @@ import { lazy } from "react";
 import Layout from "./Layout.jsx";
 import "./App.css";
 
-const Home = lazy(() => import("./pages/Home.jsx"));
-const Catalog = lazy(() => import("./pages/Catalog.jsx"));
-const CatalogItem = lazy(() => import("./pages/CatalogItem.jsx"));
+const Home = lazy(() => import("./pages/Home/Home.jsx"));
+const Catalog = lazy(() => import("./pages/Catalog/Catalog.jsx"));
+const CatalogItem = lazy(() => import("./pages/CatalogItem/CatalogItem.jsx"));
 const Features = lazy(() => import("./components/Features/Features.jsx"));
 const Reviews = lazy(() => import("./components/Reviews/Reviews.jsx"));
 const NotFoundPage = lazy(() =>

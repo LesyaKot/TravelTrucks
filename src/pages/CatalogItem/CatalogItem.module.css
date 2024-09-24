@@ -1,0 +1,16 @@
+.pageWrap {
+  padding-bottom: 80px;
+  padding-top: 50px;
+}
+
+.camperDetailsWrap {
+  max-width: 1440px;
+  padding: 0px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookFormWrap {
+  display: flex;
+  justify-content: space-between;
+}

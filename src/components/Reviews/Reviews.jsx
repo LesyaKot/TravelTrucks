@@ -8,9 +8,9 @@ export default function Reviews() {
   const { currentItem } = useSelector(selectCampers);
   const { reviews } = currentItem;
   return (
-    <ul className={css.reviewList}>
+    <ul className={css.list}>
       {reviews.map((item) => (
-        <li key={nanoid()}>
+        <li className={css.item} key={nanoid()}>
           <ReviewItem review={item} />
         </li>
       ))}

@@ -5,15 +5,16 @@ import {
   selectCampers,
   selectError,
   selectIsLoading,
-} from "../redux/campers/selectors.js";
-import { fetchCamperById } from "../redux/campers/operations.js";
-import { closeModal, openModal } from "../redux/modal/slice.js";
-import { selectModal } from "../redux/modal/selectors.js";
+} from "../../redux/campers/selectors.js";
+import { fetchCamperById } from "../../redux/campers/operations.js";
+import { closeModal, openModal } from "../../redux/modal/slice.js";
+import { selectModal } from "../../redux/modal/selectors.js";
 import { Toaster } from "react-hot-toast";
-import CamperItem from "../components/CamperItem/CamperItem.jsx";
-import BookForm from "../components/BookForm/BookForm.jsx";
-import CatalogItemNav from "../components/CatalogItemNav/CatalogItemNav.jsx";
-import ImageModal from "../components/ImageModal/ImageModal.jsx";
+import CamperItem from "../../components/CamperItem/CamperItem.jsx";
+import BookForm from "../../components/BookForm/BookForm.jsx";
+import CatalogItemNav from "../../components/CatalogItemNav/CatalogItemNav.jsx";
+import ImageModal from "../../components/ImageModal/ImageModal.jsx";
+import css from './CatalogItem.module.css';
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -44,11 +45,11 @@ export default function CamperDetailsPage() {
   };
 
   return (
-    <section>
+    <section className={css.pageWrap}>
       {isLoading && `Please wait a second`}
       {error && `Something is wrong`}
       {currentItem && (
-        <div>
+        <div className={css.camperDetailsWrap}>
           <ImageModal
             isOpen={isOpen}
             onClose={handleCloseModal}
@@ -56,7 +57,7 @@ export default function CamperDetailsPage() {
           />
           <CamperItem camper={currentItem} onClick={handleOpenModal} />
           <CatalogItemNav />
-          <div>
+          <div className={css.bookFormWrap}>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
             </Suspense>

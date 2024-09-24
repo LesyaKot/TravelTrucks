@@ -24,7 +24,7 @@ const handleSubmit = (values, actions) => {
 
 export default function BookForm() {
   return (
-    <div>    
+    <div className={css.bookFormWrap}>    
       <h2 className={css.title}>Book your campervan now</h2>
       <p className={css.text}>Stay connected! We are always ready to help you.</p>
       <Formik

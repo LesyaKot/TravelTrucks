@@ -7,13 +7,13 @@ export default function ReviewItem({
   return (
     <>
       <div className={css.wrap}>
-        <div className={css.firstLeter}>{reviewer_name[0]}</div>
+        <div className={css.firstLetter}>{reviewer_name[0]}</div>
         <div className={css.nameWrap}>
           <h3 className={css.name}>{reviewer_name}</h3>
           <RatingStars count={reviewer_rating} />
         </div>
       </div>
-      <p>{comment}</p>
+      <p className={css.text}>{comment}</p>
     </>
   );
 }
