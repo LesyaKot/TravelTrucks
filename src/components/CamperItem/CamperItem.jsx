@@ -12,22 +12,23 @@ export default function CamperItem({ camper, onClick }) {
   const myLocation = `${city}, ${country} `;
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <p>€{price}</p>
-      <p>€{price.toFixed(2)}</p>
+    <div className={css.wrap}>
+      <h2 className={css.name}>{name}</h2>
+     
 
-      <div>
-        <StarFill size={16} />
+      <div className={css.ratingLocationWrap}>
+        <div className={css.rating}>
+        <StarFill className={css.starIcon} size={16} />
         <p>
           {rating}({reviews.length})Reviews
         </p>
       </div>
-
-      <div>
-        <Map size={16} />
+      <div className={css.location}>
+        <Map className={css.mapIcon} size={16} />
         <p>{myLocation}</p>
+      </div>    
       </div>
+      <p className={css.price}>€{price.toFixed(2)}</p>
     
       <ImageGallery gallery={gallery} onClick={onClick} />
 

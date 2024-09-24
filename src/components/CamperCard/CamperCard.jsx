@@ -48,19 +48,7 @@ export default function CamperCard({ camper }) {
         </div>
         <p className={css.description}>{description}</p>
 
-        <CamperCategories 
-  transmission={camper.transmission} 
-  engine={camper.engine} 
-  AC={camper.AC} 
-  bathroom={camper.bathroom} 
-  kitchen={camper.kitchen} 
-  TV={camper.TV} 
-  radio={camper.radio} 
-  refrigerator={camper.refrigerator} 
-  microwave={camper.microwave} 
-  gas={camper.gas} 
-  water={camper.water} 
-/>
+        <CamperCategories camper={camper}/>
 
         <Button variant="small" to={`/catalog/${id}`}>        
           Show more

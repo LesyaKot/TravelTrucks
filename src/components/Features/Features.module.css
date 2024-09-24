@@ -1,0 +1,42 @@
+.wrap{
+    border-radius: 10px;
+    padding: 44px 88px;
+    width: 631px;
+    height: 588px;
+    background-color: var(--main-inputs-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.title{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--main-gray-light-color);
+}
+.listCateg{
+    display: flex;
+flex-direction: column;
+font-weight: 500;
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.listMean{
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.wrapCateg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

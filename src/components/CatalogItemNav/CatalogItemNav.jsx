@@ -9,7 +9,7 @@ const getNavLinkClass = ({ isActive }) => {
 export default function CatalogItemNav() {
   return (
     <ul className={css.list}>
-      <li>
+      <li className={css.item}>
         <NavLink to="features" className={getNavLinkClass}>
           Features
         </NavLink>

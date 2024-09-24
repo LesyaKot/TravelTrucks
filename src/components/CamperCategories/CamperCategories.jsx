@@ -1,3 +1,5 @@
+import CamperCategoriesItem from "../CamperCategoriesItem/CamperCategoriesItem";
+import css from "./CamperCategories.module.css";
 import {
   Wind,
   CupHot,
@@ -10,30 +12,20 @@ import {
   FuelPump,
   UiRadios,
 } from "react-bootstrap-icons";
-import CamperCategoriesItem from "../CamperCategoriesItem/CamperCategoriesItem";
-import css from "./CamperCategories.module.css";
 
+export default function CamperCategories({ camper }) {
+  if (!camper) {
+    return null;
+  }
 
+  const { transmission, engine, AC, bathroom, kitchen, TV, radio, refrigerator, microwave, gas, water } = camper;
 
-export default function CamperCategories({
-  camper: transmission,
-  engine,
-  AC,
-  bathroom,
-  kitchen,
-  TV,
-  radio,
-  refrigerator,
-  microwave,
-  gas,
-  water,
-}) {
   const categories = {
     transmission,
     engine,
+    kitchen,
     AC,
     bathroom,
-    kitchen,
     TV,
     radio,
     refrigerator,
@@ -42,7 +34,7 @@ export default function CamperCategories({
     water,
   };
 
-  const icons = {
+  const iconMap = {
     transmission: Diagram3,
     engine: FuelPump,
     kitchen: CupHot,
@@ -57,16 +49,17 @@ export default function CamperCategories({
   };
 
   const data = Object.entries(categories).filter(([key, value]) => value);
+
   return (
     <ul className={css.list}>
       {data.map(([key, value]) => {
-        const CategoryIcon = icons[key];
+        const IconComponent = iconMap[key];
         const title = key === "transmission" || key === "engine" ? value : key;
 
         return (
-          CategoryIcon && (
+          IconComponent && (
             <li key={key}>
-             <CamperCategoriesItem icon={CategoryIcon} title={title} />
+              <CamperCategoriesItem icon={IconComponent} title={title} />
             </li>
           )
         );

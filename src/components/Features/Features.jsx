@@ -17,11 +17,13 @@ export default function Features() {
   const modifiedTank = modifiedString(tank);
 
   return (
-    <div>
+    <div className={css.wrap}>
       <CampersCategories camper={currentItem} />
-      <div>
-        <h3>Vehicle details</h3>
-        <ul>
+   
+        <h3 className={css.title}>Vehicle details</h3>
+
+        <div className={css.wrapCateg}>
+        <ul className={css.listCateg}>
           <li>Form</li>
           <li>Length</li>
           <li>Width</li>
@@ -29,7 +31,7 @@ export default function Features() {
           <li>Tank</li>
           <li>Consumption</li>
         </ul>
-        <ul>
+        <ul className={css.listMean}>
           <li>{formatted}</li>
           <li>{modifiedLength}</li>
           <li>{modifiedWidth}</li>
@@ -38,6 +40,7 @@ export default function Features() {
           <li>{consumption}</li>
         </ul>
       </div>
+   
     </div>
   );
 }
